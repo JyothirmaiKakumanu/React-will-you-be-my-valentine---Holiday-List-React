@@ -6,57 +6,48 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    this.cityList = [{ location:'location1',name: 'Goa', country: 'India' },
-    { location:'location2',name: 'Amsterdam', country: 'Netherlands' },
-    { location:'location3',name: 'New York', country: 'USA' },
-    { location:'location4',name: 'Darjeeling', country: 'India' },
-    { location:'location5',name: 'Tokyo', country: 'Japan' },
-    { location:'location6',name: 'Lonavala', country: 'India' },
-    { location:'location7',name: 'Brandenburg Gate', country: 'Germany' },
-    { location:'location8',name: 'Reichstag Building', country: 'Germany' },
-    { location:'location9',name: 'Museum Island', country: 'Germany' },
-    { location:'location10',name: 'Munnar', country: 'India' },
-    { location:'location11',name: 'Leh Ladakh', country: 'India' },
-    { location:'location12',name: 'Goa', country: 'India' },
-    { location:'location13',name: 'Agra', country: 'India' },
-    { location:'location14',name: 'Dalhousie', country: 'India' },
-    { location:'location15',name: 'Coorg', country: 'India' },
-    { location:'location16',name: 'Rome', country: 'Italy' },
-    { location:'location17',name: 'Milan', country: 'Italy' },
-    { location:'location18',name: 'Venice', country: 'Italy' },
-    { location:'location19',name: 'Varanasai', country: 'India' },
-    { location:'location20',name: 'Jaipur', country: 'India' },
-    { location:'location21',name: 'The Hofburg', country: 'Austria' },
-    { location:'location22',name: 'Belvedere Palace', country: 'Austria' },
-    { location:'location23',name: 'St. Stephen Cathedral', country: 'Austria' },
-    { location:'location24',name: 'Kahna National Park', country: 'India' },
-    { location:'location25',name: 'Amritsar', country: 'India' },
-    { location:'location26',name: 'Mussoorie', country: 'India' },
-    { location:'location27',name: 'Mount Abu', country: 'India' },
-    { location:'location28',name: 'Tirupati', country: 'India' },
+    this.cityList = [{name: 'Goa', country: 'India' },
+    { name: 'Amsterdam', country: 'Netherlands' },
+    { name: 'New York', country: 'USA' },
+    { name: 'Darjeeling', country: 'India' },
+    { name: 'Tokyo', country: 'Japan' },
+    { name: 'Lonavala', country: 'India' },
     ]
+    // this.filterCities();
   }
   
+  
+//   filterCities(){
+//   console.log("Hi");
+//   const filterCities = this.cityList.filter((city)=>{
+//     // console.log("city"+city.name);
+//     city.country==="India"
+//     // console.log("heol");
+//   })
+//   // .map((filterCity)=>{
+//     console.log(filterCities);
+//     return (<li key={filterCities.key}>{filterCities}</li>);
+//   // })
+// }
+  
 
-  render() {
-    // const cities = ['Goa','Amsterdam','New York', 'Darjeeling','Tokyo','Lonavala'];
-    const cityArr = this.cityList.map(city=>{
-      console.log(city,location);
-      // const renderCity = 
-      return <li key={city.location}>{city.name}</li>
-    });
-
-    return (
-    
-        
+  render() { 
+    let  i=0;
+    let filteredCities = this.cityList.filter((city)=>{
+      return city.country=='India'
+    })
+    return(
       <div id="main">
         {/* Do not remove the main div */}
         <ol>
-          {cityArr}
+          {filteredCities.map((city)=>
+            <li key={`location${i+1}`}>{city.name}</li>
+          )}
         </ol>
       </div>
     )
-  }
+  
+}
 }
 
 
